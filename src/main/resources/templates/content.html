@@ -1,12 +1,6 @@
-<font size='4px' color='#66CCFF'>
-    <h1 align='center'>视频类型:[精品]</h1>
-</font>
-<font size='4px' color='#00FF00'>
-    <h1 align='center'>视频名称:处女的肛门 肯德拉铲</h1>
-</font>﻿
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <!--<meta name="viewport"-->
@@ -127,6 +121,12 @@
 </head>
 
 <body>
+<font size='4px' color='#66CCFF'>
+    <h1 align='center'>视频类型:[精品]</h1>
+</font>
+<font size='4px' color='#00FF00'>
+    <h1 align='center'>视频名称:处女的肛门 肯德拉铲</h1>
+</font>﻿
 
 <script src="top.js"></script>
 <script src="foot.js"></script>
@@ -141,13 +141,13 @@
 
 <script type="text/javascript" src="http://mu.coroad.cn/ckplayer/ckplayer.js"></script>
 <div class="video" id="video" style="width: 100%;height:17rem;"></div>
-<script>
+<script th:inline="javascript">
     const dp = new DPlayer({
         container: window['document']['getElementById']('video'),
         autoplay: 1,
         hotkey: 0,
         video: {
-            url: 'https://k.kvjia.com/20200804/w3INIwwb/index.m3u8?sign=4dcaaedc73bb2d5cd85841546ca9900f&t=1598982097',
+            url: 'yellow/' + [[${title}]],
             type: 'hls'
         }
     });
