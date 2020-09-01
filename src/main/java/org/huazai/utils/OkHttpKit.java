@@ -67,7 +67,7 @@ public final class OkHttpKit {
 					clientBuilder.writeTimeout(WRITE_TIMEOUT, TimeUnit.MILLISECONDS);
 					// Cookie自动管理
 					clientBuilder.cookieJar(new CookieJar() {
-						private final Map<String, Map<String, Cookie>> cookies = new ConcurrentHashMap<>();
+						private final Map<String, Map<String, Cookie>> cookies = new ConcurrentHashMap<>(16);
 
 						@Override
 						public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
@@ -82,9 +82,7 @@ public final class OkHttpKit {
 							if (domainCookieMap == null) {
 								this.cookies.put(url.host(), tempCookieMap);
 							} else {
-								tempCookieMap.forEach((name, cookie) -> {
-									domainCookieMap.put(name, cookie);
-								});
+								tempCookieMap.forEach(domainCookieMap::put);
 							}
 						}
 
