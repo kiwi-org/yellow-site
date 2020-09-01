@@ -1,6 +1,6 @@
 package org.huazai.configuration;
 
-import org.huazai.model.Result;
+import org.huazai.common.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

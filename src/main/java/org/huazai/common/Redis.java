@@ -1,4 +1,4 @@
-package org.huazai.toolkit;
+package org.huazai.common;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package org.huazai.model;
+package org.huazai.common;
 
 import lombok.Getter;
 import lombok.Setter;
