@@ -1,7 +1,9 @@
 package org.huazai.service;
 
 import com.sun.tools.corba.se.idl.StringEntry;
+import org.aspectj.lang.annotation.After;
 import org.huazai.mapper.SiteCollectMapper;
+import org.huazai.model.entity.SiteCollectDO;
 import org.huazai.utils.OkHttpKit;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -9,6 +11,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.AbstractMap;
@@ -24,6 +27,37 @@ public class YellowService {
 
     @Resource
     private SiteCollectMapper siteCollectMapper;
+
+    /**
+     * 自动获取链接并保存链接
+     * @author YanAnHuaZai
+     * create 2020年09月02日03:36:37
+     */
+    @SuppressWarnings("all")
+    @PostConstruct
+    private void autoSaveSiteUrl() {
+        System.out.println("invoke autoSaveSiteUrl");
+        new Thread(() -> {
+            while (true) {
+                try {
+                    Map.Entry<String, String> yellowSiteM3u8Url = getYellowSiteM3u8Url();
+                    System.out.println("保存：" + yellowSiteM3u8Url.getKey());
+                    SiteCollectDO siteCollectDO = new SiteCollectDO();
+                    siteCollectDO.setTitle(yellowSiteM3u8Url.getKey());
+                    siteCollectDO.setUrl(yellowSiteM3u8Url.getValue());
+                    siteCollectDO.setContent(OkHttpKit.get(yellowSiteM3u8Url.getValue()).execute());
+                    siteCollectMapper.insert(siteCollectDO);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
 
     private Map.Entry<String, String> getYellowSiteM3u8Url() {
         String response = null;
