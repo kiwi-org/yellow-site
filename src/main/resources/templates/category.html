@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>类目</title>
-    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="/css/buttons.css">
 </head>
 <body>
     <div>
@@ -13,7 +13,7 @@
     <div>
         <a class="button button-caution button-pill button-jumbo">xxxxxxxxxxxxxxxxxxxxx</a>&nbsp;
         <a class="button button-caution button-pill button-large">xxx</a>&nbsp;
-        <span th:each="title: ${titleList}"><a th:text="${title}" class="button button-highlight button-pill button-jumbo"></a>&nbsp;</span>
+        <span th:each="title: ${titleList}"><a th:text="${title}" th:href="@{/content(title=${title})}" class="button button-highlight button-pill button-jumbo" style="margin-bottom: 15px;"></a>&nbsp;</span>
     </div>
 </body>
 </html>
