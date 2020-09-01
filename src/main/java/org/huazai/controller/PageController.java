@@ -44,11 +44,7 @@ public class PageController {
         if (StringUtils.isEmptyOrWhitespace(title)) {
             return "redirect:/index";
         }
-        SiteVO siteVO = yellowService.queryByTitle(title);
-        if (null == siteVO) {
-            return "redirect:/index";
-        }
-        model.addAttribute("site", siteVO);
+        model.addAttribute("title", title);
         return "content";
     }
 }
