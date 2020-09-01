@@ -1,6 +1,9 @@
 package org.huazai.service;
 
+import org.huazai.mapper.SiteCollectMapper;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author YanAnHuaZai
@@ -8,4 +11,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class YellowService {
+
+    @Resource
+    private SiteCollectMapper siteCollectMapper;
+
 }

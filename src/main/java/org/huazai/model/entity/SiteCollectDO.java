@@ -1,5 +1,6 @@
 package org.huazai.model.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,6 +13,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@TableName("t_site_collect")
 public class SiteCollectDO {
 
     private String title;
