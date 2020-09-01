@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author YanAnHuaZai
@@ -33,6 +34,7 @@ public class MapperTest {
 
     @Test
     public void testRedis() {
+        redis.set("TEST", "TEST", 1, TimeUnit.HOURS);
         Object test = redis.get("TEST");
         System.out.println("test = " + test);
     }
