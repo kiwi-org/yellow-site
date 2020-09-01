@@ -34,7 +34,7 @@ public class YellowService {
      * @return 所有标题
      */
     public List<String> queryTitleList() {
-
+        return siteCollectMapper.selectTitleList();
     }
 
     /**

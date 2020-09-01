@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.thymeleaf.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 页面跳转
@@ -19,8 +20,14 @@ public class PageController {
     @Resource
     private YellowService yellowService;
 
+    /**
+     * 首页
+     * @author YanAnHuaZai
+     * create 2020年09月02日04:23:50
+     */
     @RequestMapping({"", "/", "index.html", "index"})
     public String homepage(Model model) {
+        model.addAttribute("titleList", yellowService.queryTitleList());
         return "category";
     }
 
