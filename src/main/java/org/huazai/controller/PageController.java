@@ -1,5 +1,6 @@
 package org.huazai.controller;
 
+import org.huazai.model.vo.SiteVO;
 import org.huazai.service.YellowService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,12 +32,23 @@ public class PageController {
         return "category";
     }
 
+    /**
+     * 详情
+     * @author YanAnHuaZai
+     * create 2020年09月02日04:28:00
+     * @param title 标题
+     * @return 详情内容
+     */
     @RequestMapping("content")
     public String content(Model model, String title) {
         if (StringUtils.isEmptyOrWhitespace(title)) {
             return "redirect:/index";
         }
-
+        SiteVO siteVO = yellowService.queryByTitle(title);
+        if (null == siteVO) {
+            return "redirect:/index";
+        }
+        model.addAttribute("site", siteVO);
         return "content";
     }
 }
