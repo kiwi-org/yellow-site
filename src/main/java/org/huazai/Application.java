@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * created at：2020-09-01 22:10
  */
 @SpringBootApplication
-@MapperScan("")
+@MapperScan("org.huazai.mapper")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
