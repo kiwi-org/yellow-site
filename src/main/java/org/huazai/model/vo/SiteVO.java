@@ -18,7 +18,6 @@ public class SiteVO implements Serializable {
     private static final long serialVersionUID = -4776376627795607993L;
 
     private String title;
-    private String url;
     private String content;
 
 }

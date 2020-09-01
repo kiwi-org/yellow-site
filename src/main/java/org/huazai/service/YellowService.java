@@ -1,5 +1,8 @@
 package org.huazai.service;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.huazai.mapper.SiteCollectMapper;
 import org.huazai.model.entity.SiteCollectDO;
 import org.huazai.model.vo.SiteVO;
@@ -38,14 +41,18 @@ public class YellowService {
     }
 
     /**
-     * 根据标题查询具体的
+     * 根据标题查询具体的内容
      * @author YanAnHuaZai
      * create 2020年09月02日04:20:50
      * @param title 标题
-     * @return 具体的
+     * @return 具体的内容
      */
-    public SiteVO queryByTitle(String title) {
-
+    public String queryContentByTitle(String title) {
+        SiteCollectDO siteCollectDO = siteCollectMapper.selectOne(Wrappers.<SiteCollectDO>lambdaQuery().eq(SiteCollectDO::getTitle, title));
+        if (null == siteCollectDO) {
+            return null;
+        }
+        return siteCollectDO.getContent();
     }
 
     /**
