@@ -7,13 +7,24 @@
     <link rel="stylesheet" href="/css/buttons.css">
 </head>
 <body>
-    <div>
-        <h2 align="center">欢迎来到类目中心👏</h2>
-    </div>
-    <div>
-        <a class="button button-caution button-pill button-jumbo">xxxxxxxxxxxxxxxxxxxxx</a>&nbsp;
-        <a class="button button-caution button-pill button-large">xxx</a>&nbsp;
-        <span th:each="title: ${titleList}"><a th:text="${title}" th:href="@{/content(title=${title})}" class="button button-highlight button-pill button-jumbo" style="margin-bottom: 15px;"></a>&nbsp;</span>
-    </div>
+<div>
+    <h2 align="center">欢迎来到类目中心👏</h2>
+</div>
+<div>
+    <a class="button button-caution button-pill button-jumbo">xxxxxxxxxxxxxxxxxxxxx</a>&nbsp;
+    <a class="button button-caution button-pill button-large">xxx</a>&nbsp;
+    <span th:each="title: ${titleList}"><a th:text="${title}" th:href="@{/content(title=${title})}" class="button"
+                                           style="margin-bottom: 15px;"></a>&nbsp;</span>
+</div>
+<script>
+    window.onload = function () {
+        let buttonStyle = [["button-primary", "button-caution", "button-action", "button-highlight", "button-royal"], ["button-pill", "button-rounded"], ["", "button-small", "button-tiny", "button-jumbo", "button-large", "button-giant"]];
+        document.querySelectorAll("a.button").forEach(e => {
+            buttonStyle.forEach(item => {
+                e.classList.add(item[Math.floor(Math.random() * item.length)]);
+            })
+        })
+    };
+</script>
 </body>
 </html>
