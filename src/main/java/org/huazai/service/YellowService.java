@@ -1,7 +1,5 @@
 package org.huazai.service;
 
-import com.sun.tools.corba.se.idl.StringEntry;
-import org.aspectj.lang.annotation.After;
 import org.huazai.mapper.SiteCollectMapper;
 import org.huazai.model.entity.SiteCollectDO;
 import org.huazai.utils.OkHttpKit;
@@ -15,7 +13,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.AbstractMap;
-import java.util.Collections;
 import java.util.Map;
 
 /**
