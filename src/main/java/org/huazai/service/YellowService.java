@@ -2,6 +2,7 @@ package org.huazai.service;
 
 import org.huazai.mapper.SiteCollectMapper;
 import org.huazai.model.entity.SiteCollectDO;
+import org.huazai.model.vo.SiteVO;
 import org.huazai.utils.OkHttpKit;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,6 +14,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.AbstractMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,6 +26,27 @@ public class YellowService {
 
     @Resource
     private SiteCollectMapper siteCollectMapper;
+
+    /**
+     * 查询所有标题
+     * @author YanAnHuaZai
+     * create 2020年09月02日04:20:34
+     * @return 所有标题
+     */
+    public List<String> queryTitleList() {
+
+    }
+
+    /**
+     * 根据标题查询具体的
+     * @author YanAnHuaZai
+     * create 2020年09月02日04:20:50
+     * @param title 标题
+     * @return 具体的
+     */
+    public SiteVO queryByTitle(String title) {
+
+    }
 
     /**
      * 自动获取链接并保存链接

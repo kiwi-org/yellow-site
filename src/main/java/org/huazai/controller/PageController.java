@@ -4,6 +4,7 @@ import org.huazai.service.YellowService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.thymeleaf.util.StringUtils;
 
 import javax.annotation.Resource;
 
@@ -21,5 +22,14 @@ public class PageController {
     @RequestMapping({"", "/", "index.html", "index"})
     public String homepage(Model model) {
         return "category";
+    }
+
+    @RequestMapping("content")
+    public String content(Model model, String title) {
+        if (StringUtils.isEmptyOrWhitespace(title)) {
+            return "redirect:/index";
+        }
+
+        return "content";
     }
 }
