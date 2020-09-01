@@ -1,4 +1,6 @@
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title>类目</title>
@@ -11,7 +13,7 @@
     <div>
         <a class="button button-caution button-pill button-jumbo">xxxxxxxxxxxxxxxxxxxxx</a>&nbsp;
         <a class="button button-caution button-pill button-large">xxx</a>&nbsp;
-        <a class="button button-highlight button-pill button-jumbo">xxx</a>&nbsp;
+        <span th:each="title: ${titleList}"><a th:text="${title}" class="button button-highlight button-pill button-jumbo"></a>&nbsp;</span>
     </div>
 </body>
 </html>
