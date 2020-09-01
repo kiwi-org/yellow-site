@@ -1,5 +1,6 @@
 package org.huazai;
 
+import org.huazai.common.Redis;
 import org.huazai.mapper.SiteCollectMapper;
 import org.huazai.model.entity.SiteCollectDO;
 import org.junit.Test;
@@ -19,12 +20,21 @@ import java.util.List;
 public class MapperTest {
 
     @Resource
+    private Redis redis;
+
+    @Resource
     private SiteCollectMapper siteCollectMapper;
 
     @Test
     public void test() {
         List<SiteCollectDO> result = siteCollectMapper.selectList(null);
         System.out.println(result);
+    }
+
+    @Test
+    public void testRedis() {
+        Object test = redis.get("TEST");
+        System.out.println("test = " + test);
     }
 
 }
