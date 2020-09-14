@@ -72,7 +72,7 @@ public class YellowService {
                     SiteCollectDO siteCollectDO = new SiteCollectDO();
                     siteCollectDO.setTitle(yellowSiteM3u8Url.getKey());
                     siteCollectDO.setUrl(yellowSiteM3u8Url.getValue());
-                    siteCollectDO.setContent(OkHttpKit.get(yellowSiteM3u8Url.getValue()).execute());
+                    siteCollectDO.setContent(getContent(yellowSiteM3u8Url.getValue()));
                     siteCollectMapper.insert(siteCollectDO);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -84,6 +84,37 @@ public class YellowService {
                 }
             }
         }).start();
+    }
+
+    /**
+     * 获取内容
+     * @author YanAnHuaZai
+     * create 2020年09月14日22:28:10
+     * @param url 链接
+     * @return 内容
+     */
+    private String getContent(String url) throws IOException {
+        System.out.println("获取内容：" + url);
+        String response = OkHttpKit.get(url).execute();
+        String[] contentArr = response.split("\n");
+        String line;
+        for (int i = 0; i < contentArr.length; i++) {
+            line = contentArr[i];
+            if (line.startsWith("#EXT-X-STREAM-INF")) {
+                if (url.startsWith("http")) {
+                    return getContent(contentArr[i + 1].trim());
+                }
+                int firstIndex = url.indexOf("://");
+                if (firstIndex > 0) {
+                    int index = url.indexOf("/", firstIndex + 3);
+                    return getContent(url.substring(0, index).trim() + contentArr[i + 1].trim());
+                }
+                return response;
+            } else if (line.startsWith("#EXTINF")) {
+                return response;
+            }
+        }
+        return response;
     }
 
     private Map.Entry<String, String> getYellowSiteM3u8Url() {
