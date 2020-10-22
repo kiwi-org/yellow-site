@@ -1,4 +1,4 @@
-package org.huazai.model.entity;
+package org.kiwi.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;

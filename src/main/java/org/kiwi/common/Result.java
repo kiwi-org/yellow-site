@@ -1,4 +1,4 @@
-package org.huazai.common;
+package org.kiwi.common;
 
 import lombok.Getter;
 import lombok.Setter;

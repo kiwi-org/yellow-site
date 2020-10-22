@@ -1,8 +1,8 @@
-package org.huazai.mapper;
+package org.kiwi.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Select;
-import org.huazai.model.entity.SiteCollectDO;
+import org.kiwi.model.entity.SiteCollectDO;
 
 import java.util.List;
 

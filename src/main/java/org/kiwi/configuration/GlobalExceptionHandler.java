@@ -1,6 +1,6 @@
-package org.huazai.configuration;
+package org.kiwi.configuration;
 
-import org.huazai.common.Result;
+import org.kiwi.common.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

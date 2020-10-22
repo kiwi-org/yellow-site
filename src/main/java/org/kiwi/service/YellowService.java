@@ -1,12 +1,9 @@
-package org.huazai.service;
+package org.kiwi.service;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import org.huazai.mapper.SiteCollectMapper;
-import org.huazai.model.entity.SiteCollectDO;
-import org.huazai.model.vo.SiteVO;
-import org.huazai.utils.OkHttpKit;
+import org.kiwi.mapper.SiteCollectMapper;
+import org.kiwi.model.entity.SiteCollectDO;
+import org.kiwi.utils.OkHttpKit;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

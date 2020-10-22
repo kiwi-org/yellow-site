@@ -1,6 +1,6 @@
-package org.huazai.controller;
+package org.kiwi.controller;
 
-import org.huazai.service.YellowService;
+import org.kiwi.service.YellowService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

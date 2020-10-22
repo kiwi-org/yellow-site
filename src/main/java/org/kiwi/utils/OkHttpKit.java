@@ -1,4 +1,4 @@
-package org.huazai.utils;
+package org.kiwi.utils;
 
 import okhttp3.*;
 

@@ -1,4 +1,4 @@
-package org.huazai.model.vo;
+package org.kiwi.model.vo;
 
 import lombok.Getter;
 import lombok.Setter;

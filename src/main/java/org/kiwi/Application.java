@@ -1,4 +1,4 @@
-package org.huazai;
+package org.kiwi;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

@@ -1,14 +1,12 @@
-package org.huazai.controller;
+package org.kiwi.controller;
 
-import org.huazai.model.vo.SiteVO;
-import org.huazai.service.YellowService;
+import org.kiwi.service.YellowService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.thymeleaf.util.StringUtils;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 页面跳转
